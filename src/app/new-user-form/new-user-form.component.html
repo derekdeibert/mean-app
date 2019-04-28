@@ -1,0 +1,38 @@
+<div>
+  <h3>{{mode}} User Form</h3>
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <mat-form-field >
+      <input matInput placeholder="First Name" id="firstname" [(ngModel)]="firstName" name="firstname" >
+    </mat-form-field>
+
+    <mat-form-field >
+      <input matInput placeholder="Last Name" id="lastname" [(ngModel)]="lastName" name="lastname" >
+    </mat-form-field>
+
+    <mat-form-field >
+      <input matInput placeholder="User Name" id="username" [(ngModel)]="username" name="username" >
+    </mat-form-field>
+
+    <h3>Task Description</h3>
+    <mat-form-field>
+      <textarea matInput id="task" [(ngModel)]="task" name="task" placeholder="Task">enter</textarea>
+    </mat-form-field>
+
+    <h3>Date to Complete</h3>
+    <mat-form-field >
+      <input matInput id="month" [(ngModel)]="month" placeholder="Month" name="month">
+    </mat-form-field>
+
+    <mat-form-field >
+      <input matInput placeholder="Day" id="day" [(ngModel)]="day" name="day" >
+    </mat-form-field>
+
+    <mat-form-field >
+      <input matInput placeholder="Year" id="year" [(ngModel)]="year" name="year" >
+    </mat-form-field>
+
+    <p>
+      <button type="submit" mat-raised-button>Submit</button>
+    </p>
+  </form>
+</div>
