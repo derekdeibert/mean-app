@@ -57,7 +57,7 @@ app.delete("/users/:id", (req, res, next) => {
   });
 });
 
-// serve incoming put requests to /students
+// serve incoming put requests to /users
 app.put('/users/:id', (req, res, next) => {
   console.log("id: " + req.params.id)
   // check that the parameter id is valid
@@ -87,7 +87,6 @@ app.put('/users/:id', (req, res, next) => {
 mongoose.connect('mongodb+srv://derek:derek1989@cluster0-ods91.mongodb.net/test?retryWrites=true', { useNewUrlParser: true })
   .then(() => { console.log("connected to MondoDB Atlas"); })
   .catch(() => { console.log("error connecting"); });
-
 
 //to use this middleware in other parts of the application
 module.exports=app;

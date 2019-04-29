@@ -1,5 +1,6 @@
-<div>
-  <h3>{{mode}} User Form</h3>
+
+<div id="AddUser">
+  <h1>{{mode}} User Form</h1>
   <form (ngSubmit)="onSubmit()" #myForm="ngForm">
     <mat-form-field >
       <input matInput placeholder="First Name" id="firstname" [(ngModel)]="firstName" name="firstname" >
@@ -33,6 +34,8 @@
 
     <p>
       <button type="submit" mat-raised-button>Submit</button>
+      <!-- Button code -->
     </p>
   </form>
 </div>
+<script src="mean-app/index.js"></script>

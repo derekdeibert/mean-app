@@ -2,10 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UsersService } from '../users.service';
 import {Router} from '@angular/router';
 import {ActivatedRoute, ParamMap } from '@angular/router';
+
 @Component({
   selector: 'app-new-user-form',
   templateUrl: './new-user-form.component.html',
-  styleUrls: ['./new-user-form.component.css']
+  styleUrls: ['./new-user-form.component.css'],
 })
 export class NewUserFormComponent implements OnInit {
   @Input() firstName: string;
@@ -16,13 +17,13 @@ export class NewUserFormComponent implements OnInit {
   @Input() day: string;
   @Input() year: string;
 
-  private mode = 'add'; //default mode
+  private mode = 'Add'; //default mode
   private id: string;
   constructor(private _myService: UsersService, private router: Router, public route: ActivatedRoute) { }
   onSubmit(){
-    if (this.mode == 'add')
+    if (this.mode == 'Add')
       this._myService.addStudents(this.firstName , this.lastName, this.username, this.task, this.month, this.day, this.year);
-    if (this.mode == 'edit')
+    if (this.mode == 'Edit')
       this._myService.updateUser(this.id, this.firstName , this.lastName, this.username, this.task, this.month, this.day, this.year);
     this.router.navigate(['/listUsers']);
     location.reload();
@@ -30,12 +31,12 @@ export class NewUserFormComponent implements OnInit {
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap ) => {
       if (paramMap.has('_id')) {
-        this.mode = 'edit';
+        this.mode = 'Edit';
         /*request had a parameter _id */
         this.id = paramMap.get('_id');
       }
       else {
-        this.mode = 'add';
+        this.mode = 'Add';
         this.id = null; }
     });
   }
